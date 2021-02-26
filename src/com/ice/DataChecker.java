@@ -24,13 +24,13 @@ public class DataChecker {
         Arrays.sort(arr1);
         long start = System.currentTimeMillis();
 
-        ShellSort.sort(arr2);
+        MergeSort.sort(arr2,0,arr2.length-1);
         long end = System.currentTimeMillis();
         boolean same = true;
         for (int i = 0; i < arr2.length; i++) {
             if (arr1[i] != arr2[i]) same = false;
         }
         System.out.println(same ? "right" : "wrong");
-        System.out.println("运行时间为： "+(end-start)+" ms");
+        System.out.println("运行时间为： " + (end - start) + " ms");
     }
 }
