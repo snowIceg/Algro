@@ -26,8 +26,8 @@ public class DataChecker {
             int[] arr2 = Arrays.copyOf(arr1, arr1.length);
             Arrays.sort(arr1);
 
-
-            QuickSort.sort(arr2, 0, arr2.length - 1);
+           arr2= CountSort.sort(arr2);
+//            QuickSort.sort(arr2, 0, arr2.length - 1);
 //            MergeSort.sort(arr2,0,arr2.length-1);
             for (int i = 0; i < arr2.length; i++) {
                 if (arr1[i] != arr2[i]) same = false;
