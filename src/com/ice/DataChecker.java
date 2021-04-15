@@ -19,17 +19,23 @@ public class DataChecker {
     }
 
     static void check() {
-        int[] arr1 = generateRandomArray();
-        int[] arr2 = Arrays.copyOf(arr1, arr1.length);
-        Arrays.sort(arr1);
-        long start = System.currentTimeMillis();
-
-        MergeSort.sort(arr2,0,arr2.length-1);
-        long end = System.currentTimeMillis();
         boolean same = true;
-        for (int i = 0; i < arr2.length; i++) {
-            if (arr1[i] != arr2[i]) same = false;
+        long start = System.currentTimeMillis();
+        for (int times = 0; times < 1000; times++) {
+            int[] arr1 = generateRandomArray();
+            int[] arr2 = Arrays.copyOf(arr1, arr1.length);
+            Arrays.sort(arr1);
+
+
+            QuickSort.sort(arr2, 0, arr2.length - 1);
+//            MergeSort.sort(arr2,0,arr2.length-1);
+            for (int i = 0; i < arr2.length; i++) {
+                if (arr1[i] != arr2[i]) same = false;
+            }
         }
+
+        long end = System.currentTimeMillis();
+
         System.out.println(same ? "right" : "wrong");
         System.out.println("运行时间为： " + (end - start) + " ms");
     }
