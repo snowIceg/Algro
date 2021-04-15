@@ -21,14 +21,25 @@ public class CountSort {
         for (int val : arr) {
             count[val]++;
         }
-        for (int i = 0, j = 0; i < 10; i++) {
-            while (count[i]-- > 0) {
-                res[j++] = i;
-            }
+
+//        用来记录每个值最后的位置
+        for (int i = 1; i < count.length; i++) {
+            count[i] = count[i] + count[i - 1];
         }
+//        稳定排序
+        for (int j = arr.length - 1; j >= 0; j--) {
+
+            res[--count[arr[j]]] = arr[j];
+        }
+
+//        不稳定排序
+//        for (int i = 0, j = 0; i < count.length; i++) {
+//            while (count[i]-- > 0) {
+//                res[j++] = i;
+//            }
+//        }
         return res;
     }
-
 
 }
 
